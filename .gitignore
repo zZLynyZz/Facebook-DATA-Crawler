@@ -4,4 +4,4 @@
 # Ẩn thư mục chứa profile trình duyệt (thường chứa cookie, session nhạy cảm)
 profiles/
 
-.gitignore
+data/

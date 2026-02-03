@@ -233,7 +233,7 @@ class FacebookReactionCrawler:
                                 retry_count = 0 # Có dữ liệu mới -> Reset bộ đếm lỗi
                             else:
                                 retry_count += 1
-                                print(f"         ⚠️ Không thấy mới... ({retry_count}/{MAX_NO_DATA_RETRIES})")
+                                print(f"         ⚠️ Không thấy react mới... ({retry_count}/{MAX_NO_DATA_RETRIES})")
                                 
                                 # Nếu 3 lần liên tiếp không thấy mới -> Dừng bài này
                                 if retry_count >= MAX_NO_DATA_RETRIES:

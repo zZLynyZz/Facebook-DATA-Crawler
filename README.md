@@ -33,6 +33,8 @@ Chạy module đăng nhập để lưu Cookie và Session:
 
 python src/login_fb.py
 
+Hoặc có thể chạy file main.py 
+
 Trình duyệt sẽ mở ra, bạn tiến hành đăng nhập Facebook thủ công.
 
 Khi đã vào đến Newsfeed, hãy đóng trình duyệt để hệ thống xác nhận lưu Session thành công.
@@ -44,7 +46,9 @@ Bạn chỉ cần chạy duy nhất file main.py để thực hiện chuỗi hà
 
 python main.py
 
-Trước khi chạy hãy nhớ vào file get_posts.py để dán link Fanpage vào 
+Trước khi chạy hãy nhớ vào dán link Fanpage và số lượng bài post muốn lấy vào 
+
+Nếu bạn đăng nhập rồi mà lần sau không muốn đăng nhập khi chay file mainpy nữa thì dòng DO_LOGIN hãy chuyển thành False
 
 Quy trình sẽ tự động diễn ra như sau:
 
