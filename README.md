@@ -43,6 +43,9 @@ Lưu ý: Nên tạo acc clone để tránh mất acc
 Bạn chỉ cần chạy duy nhất file main.py để thực hiện chuỗi hành động khép kín:
 
 python main.py
+
+Trước khi chạy hãy nhớ vào file get_posts.py để dán link Fanpage vào 
+
 Quy trình sẽ tự động diễn ra như sau:
 
 Quét Post: Lấy danh sách link bài viết từ Fanpage mục tiêu.
@@ -53,8 +56,10 @@ Quét Reaction: Mở popup cảm xúc, tự động cuộn để bắt danh sác
 
 Bạn có thể chạy lần lượt từng file nếu muốn kiểm tra 
 
+Lưu ý phần quét post chỉ quét post loại status, image, album không quét post loại video, share
+
 # 📊 Định dạng dữ liệu đầu ra (CSV)
-Tất cả kết quả được lưu tại thư mục data/raw/ với định dạng UTF-8-SIG (giúp mở trực tiếp bằng Excel mà không bị lỗi font tiếng Việt):
+Tất cả kết quả được lưu tại thư mục data/ với định dạng UTF-8-SIG (giúp mở trực tiếp bằng Excel mà không bị lỗi font tiếng Việt):
 
 posts_detail.csv: Thông tin tổng quan về các bài viết.
 
