@@ -1,0 +1,5 @@
+playwright==1.41.0
+asyncio
+# Các thư viện hỗ trợ xử lý dữ liệu và môi trường
+pandas>=2.0.0
+python-dotenv>=1.0.0

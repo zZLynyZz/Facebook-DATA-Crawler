@@ -1,84 +1,70 @@
-FB Data Crawler (Playwright) 🚀
-Bộ công cụ thu thập dữ liệu Facebook (Posts, Comments, Reactions) sử dụng Playwright và kỹ thuật Network Intercepting để lấy dữ liệu chính xác từ GraphQL. Dự án phục vụ mục đích phân tích dữ liệu và nghiên cứu thị trường.
+# Facebook Full Data Scraper (Automated) 🚀
+Bộ công cụ thu thập dữ liệu Facebook tự động hoàn toàn, tích hợp kỹ thuật bắt gói tin GraphQL để lấy chi tiết Bài viết, Bình luận và Cảm xúc (Reactions) từ các Fanpage mục tiêu.
 
+# 📁 Cấu trúc dự án
+main.py: File điều hướng chính, tự động chạy toàn bộ quy trình từ đầu đến cuối.
 
+src/: Thư mục chứa các module xử lý logic riêng biệt:
 
-📁 Cấu trúc thư mục
-Plaintext
-FB_DATA_CRAWLER/
-├── data/               # Nơi lưu trữ file kết quả (CSV)
-├── profiles/           # Lưu trữ Session/Cookie (Tránh login lại nhiều lần)
-├── src/                # Mã nguồn các module xử lý
-│   ├── __init__.py     # Khai báo package
-│   ├── login_fb.py     # Module đăng nhập và khởi tạo Profile
-│   ├── get_posts.py    # Module quét bài viết từ Page
-│   ├── get_comments.py # Module quét bình luận từ danh sách bài viết
-│   └── get_reactions.py# Module quét cảm xúc (Hỗ trợ thủ công)
-├── main.py             # File điều hướng chạy toàn bộ quy trình
-└── requirements.txt    # Danh sách thư viện cần thiết
+login_fb.py: Quản lý đăng nhập và lưu session vào thư mục Profile.
 
+get_posts.py: Thu thập bài viết (ID, Link, Nội dung, Thời gian...).
 
+get_comments.py: Thu thập bình luận (User, Nội dung, Timestamp...).
 
+get_reactions.py: Thu thập danh sách người thả cảm xúc (Like, Love, Haha...).
 
-🛠 Cài đặt
-Cài đặt Python: Đảm bảo bạn đã cài Python 3.8+.
+data/: Nơi chứa kết quả đầu ra dưới dạng file CSV.
 
-Cài đặt thư viện:
+profiles/: Lưu trữ dữ liệu trình duyệt để tránh phải đăng nhập lại nhiều lần.
 
-pip install -r requirements.txt
-Cài đặt trình duyệt Playwright:
+# 🛠 Cài đặt nhanh
+Cài đặt thư viện cần thiết:
 
+pip install playwright asyncio
+
+Cài đặt trình duyệt đi kèm:
 
 playwright install chromium
-📖 Hướng dẫn sử dụng
-Bước 1: Khởi tạo Profile (Đăng nhập)
-Trước khi crawl, bạn cần chạy module login để Facebook lưu lại phiên đăng nhập vào thư mục profiles.
 
-Lưu ý: Nên đăng nhập bằng acc clone để tránh bị bay acc
+# 🚀 Quy trình sử dụng
+# Bước 1: Khởi tạo Profile (Chỉ làm lần đầu)
+Chạy module đăng nhập để lưu Cookie và Session:
 
 python src/login_fb.py
-Trình duyệt sẽ mở ra, bạn đăng nhập FB và vượt qua 2FA (nếu có).
 
-Khi thấy Newsfeed hiện lên, hãy đóng trình duyệt để lưu Session.
+Trình duyệt sẽ mở ra, bạn tiến hành đăng nhập Facebook thủ công.
 
-Bước 2: Chạy quy trình tổng thể
-Chỉnh sửa cấu hình (Target URL, Max Posts...) trong các file tương ứng trong src/, sau đó chạy:
+Khi đã vào đến Newsfeed, hãy đóng trình duyệt để hệ thống xác nhận lưu Session thành công.
+
+Lưu ý: Nên tạo acc clone để tránh mất acc
+
+# Bước 2: Chạy quét dữ liệu tự động
+Bạn chỉ cần chạy duy nhất file main.py để thực hiện chuỗi hành động khép kín:
 
 python main.py
-⚠️ Lưu ý quan trọng cho từng Module
-1. Quét bài viết (get_posts.py)
-Dữ liệu được lấy trực tiếp từ gói tin GraphQL nên rất sạch.
+Quy trình sẽ tự động diễn ra như sau:
 
-Mặc định loại bỏ các bài viết dạng Share và Video để tối ưu cho phân tích văn bản.
-(Có thể thay đổi số lượng bài viết giới hạn)
-(Nếu thích có thể thay đổi các loại bài viết Share hoặc Video ở trong file)
+Quét Post: Lấy danh sách link bài viết từ Fanpage mục tiêu.
 
-2. Quét bình luận (get_comments.py)
-Tự động chuyển bộ lọc sang "Tất cả bình luận" để không bỏ sót dữ liệu.
+Quét Comment: Mở từng link bài viết, chuyển bộ lọc sang "Tất cả bình luận" và tự động cuộn để lấy dữ liệu.
 
-Tự động cuộn đến khi hết bình luận.
+Quét Reaction: Mở popup cảm xúc, tự động cuộn để bắt danh sách người dùng tương tác.
 
-3. Quét cảm xúc (get_reactions.py) - Thao tác thủ công
-Do cơ chế bảo mật của Facebook đối với danh sách Reaction rất cao, module này yêu cầu sự hỗ trợ thủ công để đảm bảo an toàn cho tài khoản:
+Bạn có thể chạy lần lượt từng file nếu muốn kiểm tra 
 
-Script sẽ tự động mở link bài viết.
+# 📊 Định dạng dữ liệu đầu ra (CSV)
+Tất cả kết quả được lưu tại thư mục data/raw/ với định dạng UTF-8-SIG (giúp mở trực tiếp bằng Excel mà không bị lỗi font tiếng Việt):
 
-Người dùng thực hiện: Click chuột vào biểu tượng/số lượng cảm xúc để mở popup danh sách người tương tác.
+posts_detail.csv: Thông tin tổng quan về các bài viết.
 
-Người dùng thực hiện: Cuộn danh sách (scroll) trong popup bằng tay.
+comments_detail.csv: Chi tiết nội dung bình luận của từng bài.
 
-Hệ thống: Script sẽ tự động "bắt" các gói tin trả về khi bạn cuộn và ghi dữ liệu vào reactions_detail.csv theo thời gian thực.
+reactions_detail.csv: Danh sách chi tiết các loại cảm xúc của người dùng.
 
-📊 Định dạng dữ liệu đầu ra
-Dữ liệu được lưu tại data/ dưới định dạng CSV (UTF-8-SIG), có thể mở trực tiếp bằng Excel mà không bị lỗi font:
+⚠️ Lưu ý an toàn (Tránh Checkpoint)
+Cấu hình: Nên để SCROLL_DELAY từ 3 giây trở lên để giả lập thao tác người dùng.
 
-Post ID: Định dạng POST_001, POST_002...
+Số lượng: Không nên quét quá 50 bài viết trong một lần chạy để đảm bảo an toàn cho tài khoản.
 
-User ID: Luôn có tiền tố FB_ (VD: FB_100012345678).
-
-Content: Nội dung văn bản đã được làm sạch xuống dòng.
-
-🛡 Chính sách sử dụng
-Công cụ này chỉ nên sử dụng cho mục đích học tập và nghiên cứu.
-
-Không nên lạm dụng quét quá nhiều yêu cầu trong thời gian ngắn để tránh bị khóa tài khoản (Checkpoint).
+Bảo mật: Tuyệt đối không chia sẻ thư mục profiles/ cho người khác vì nó chứa quyền truy cập tài khoản Facebook của bạn.
