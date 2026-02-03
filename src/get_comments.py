@@ -222,7 +222,7 @@ class FacebookCommentCrawler:
                             retry_count += 1
                             print(f"      ⚠️ Chưa thấy mới ({retry_count}/{MAX_RETRIES})...")
                             if retry_count >= MAX_RETRIES:
-                                print(f"      🛑 Dừng bài này. (Đã lấy: {current_count})")
+                                print(f"      🛑 Dừng bài này. )")
                                 break
                         else:
                             if current_count > last_count:

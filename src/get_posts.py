@@ -10,11 +10,11 @@ from playwright.async_api import async_playwright
 # ==============================================================================
 # 1. PHẦN CẤU HÌNH (CONFIGURATION)
 # ==============================================================================
-TARGET_URL = "https://www.facebook.com/abcxyz"  # Link Page cần lấy
+TARGET_URL = "https://www.facebook.com/tikopapp"  # Link Page cần lấy
 OUTPUT_FILE = 'data/posts_detail.csv'              # Tên file xuất ra
 CURRENT_PROFILE_NAME = "acc_clone_1"                   # Tên Profile Chrome
 
-MAX_POSTS = 20        # Số lượng bài viết tối đa muốn lấy
+MAX_POSTS = 5        # Số lượng bài viết tối đa muốn lấy
 SCROLL_DELAY = 3      # Thời gian nghỉ (giây) giữa các lần cuộn
 MAX_RETRIES = 5       # Số lần thử cuộn lại nếu không thấy bài mới
 
