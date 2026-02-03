@@ -1,0 +1,5 @@
+# Ẩn thư mục cache của Python
+**/__pycache__/
+
+# Ẩn thư mục chứa profile trình duyệt (thường chứa cookie, session nhạy cảm)
+profiles/
