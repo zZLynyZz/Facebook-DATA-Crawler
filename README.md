@@ -21,7 +21,7 @@ profiles/: Lưu trữ dữ liệu trình duyệt để tránh phải đăng nh�
 # 🛠 Cài đặt nhanh
 Cài đặt thư viện cần thiết:
 
-pip install playwright asyncio
+pip install -r requirements.txt
 
 Cài đặt trình duyệt đi kèm:
 
