@@ -67,7 +67,7 @@ comments_detail.csv: Chi tiết nội dung bình luận của từng bài.
 
 reactions_detail.csv: Danh sách chi tiết các loại cảm xúc của người dùng.
 
-⚠️ Lưu ý an toàn (Tránh Checkpoint)
+# ⚠️ Lưu ý an toàn (Tránh Checkpoint)
 Cấu hình: Nên để SCROLL_DELAY từ 3 giây trở lên để giả lập thao tác người dùng.
 
 Số lượng: Không nên quét quá 50 bài viết trong một lần chạy để đảm bảo an toàn cho tài khoản.

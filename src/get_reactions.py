@@ -190,10 +190,9 @@ class FacebookReactionCrawler:
 
                     if button:
                         # [VISUAL DEBUG - GIỮ LẠI ĐỂ ỔN ĐỊNH TOOL]
-                        # Vẽ viền đỏ và nền vàng để mắt người nhìn thấy
+                        # Vẽ viền đỏ để mắt người nhìn thấy
                         # Việc này cũng tạo ra độ trễ nhỏ giúp tool click chính xác hơn
                         await button.evaluate("el => el.style.border = '4px solid red'")
-                        await button.evaluate("el => el.style.backgroundColor = 'yellow'")
                         await button.scroll_into_view_if_needed()
                         await page.wait_for_timeout(1000) # Dừng 1 giây cho chắc ăn
 

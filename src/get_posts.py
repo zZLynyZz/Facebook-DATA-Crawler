@@ -10,7 +10,7 @@ from playwright.async_api import async_playwright
 # ==============================================================================
 # 1. PHẦN CẤU HÌNH (CONFIGURATION)
 # ==============================================================================
-TARGET_URL = "https://www.facebook.com/tikopapp"  # Link Page cần lấy
+TARGET_URL = "https://www.facebook.com/abcxyz"  # Link Page cần lấy
 OUTPUT_FILE = 'data/posts_detail.csv'              # Tên file xuất ra
 CURRENT_PROFILE_NAME = "acc_clone_1"                   # Tên Profile Chrome
 
